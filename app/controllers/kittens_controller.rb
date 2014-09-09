@@ -2,11 +2,13 @@ class KittensController < ApplicationController
 
   def index
     @kittens = Kitten.all
+    @categories = Category.all
   end
 
   def edit
     @kitten = Kitten.find(params[:id])
     @categories = Category.all
+    @kittens_categories = KittenCategory.all
   end
 
   def update

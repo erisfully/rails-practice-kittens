@@ -1,6 +1,0 @@
-<%= image_tag(@kitten.image) %>
-
-<%= form_for @kitten do |f|%>
-<%= f.select(:category_id, @categories.map{|category| [category.name]}) %>
-  <%= f.submit "Add CATegory" %>
-<% end %>

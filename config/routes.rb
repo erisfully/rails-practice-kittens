@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "/categories" => "categories#index", as: :categories
 
   resources :kittens
+  resources :kittens_categories
 end
