@@ -1,5 +1,5 @@
 class AddCategoryToKittens < ActiveRecord::Migration
   def change
-    add_column :kittens, :category, :string
+    add_reference :kittens, :category, index: true
   end
 end

@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 20140909033900) do
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
 
   create_table "kittens", force: true do |t|
-    t.string "image",    null: false
-    t.string "category"
+    t.string  "image",       null: false
+    t.integer "category_id"
   end
+
+  add_index "kittens", ["category_id"], name: "index_kittens_on_category_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string "name",            null: false
