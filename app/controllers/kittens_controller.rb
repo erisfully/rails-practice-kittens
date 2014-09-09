@@ -2,7 +2,6 @@ class KittensController < ApplicationController
 
   def index
     @kittens = Kitten.all
-    @categories = Category.all
   end
 
   def edit
