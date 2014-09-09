@@ -1,7 +1,9 @@
 
 <%= image_tag(Kitten.find(params[:id]).image) %>
 
+<% if flash[:notice] %>
 <span class="errors"><%= flash[:notice] %></span>
+ <% end %>
 
 <%= form_for @kittens_categories, url: kittens_categories_path(id: params[:id]) do |f|%>
   <%= f.select(:category_id, @categories.map{|category| [category.name, category.id]}, :include_blank => true) %>
