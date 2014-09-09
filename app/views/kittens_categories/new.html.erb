@@ -1,12 +1,14 @@
 
 <%= image_tag(Kitten.find(params[:id]).image) %>
 
-<% if flash[:notice] %>
-<span class="errors"><%= flash[:notice] %></span>
+<% if @kittens_categories.errors.any? %>
+<% (@kittens_categories.errors.full_messages).each do |error|  %>
+    <span class="errors"><%= error %></span>
+ <% end %>
  <% end %>
 
 <%= form_for @kittens_categories, url: kittens_categories_path(id: params[:id]) do |f|%>
-  <%= f.select(:category_id, @categories.map{|category| [category.name, category.id]}, :include_blank => true) %>
+  <%= f.select(:category_id, @categories.map{|category| [category.name, category.id]}, :prompt=> "Please choose a CATegory") %>
   <%= f.submit "Add CATegory" %>
 
 <% end %>

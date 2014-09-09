@@ -7,11 +7,11 @@ class KittensCategoriesController < ApplicationController
   def create
     @kittens_categories = KittensCategory.new
     @categories = Category.all
-
-    if KittensCategory.find_by(kitten_id: params[:id], category_id: params[:kittens_category][:category_id]) != nil
-      flash.now[:notice] = "CAtegory has already been added"
-      render 'new'
-    else
+    #
+    # if KittensCategory.find_by(kitten_id: params[:id], category_id: params[:kittens_category][:category_id]) != nil
+    #   flash.now[:notice] = "CATegory has already been added"
+    #   render 'new'
+    # else
       @kittens_categories = KittensCategory.create(kitten_id: params[:id], category_id: params[:kittens_category][:category_id])
       if @kittens_categories.save
         redirect_to root_path
@@ -22,4 +22,4 @@ class KittensCategoriesController < ApplicationController
     end
   end
 
-end
+# end
